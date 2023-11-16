@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
     // Step 2 - Variables
     let fullName = 'Whitney Hansen';
@@ -19,17 +18,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Step 5 - Array
     let favoriteFoods = ['Enchiladas', 'Pizza', 'Sushi', 'Nachos', 'Five Cheese Ziti Al Forno'];
-    foodElement.innerHTML = favoriteFoods.join('<br>');
-
+    
     let newFavoriteFood = 'Spaghetti';
     favoriteFoods.push(newFavoriteFood);
-
-    let contentString = favoriteFoods.join('<br>');
-    favoriteFoods.shift(); 
-    contentString += `<br>${favoriteFoods.join('<br>')}`;
-    favoriteFoods.pop(); 
-    contentString += `<br>${favoriteFoods.join('<br>')}`;
     
+    // Build the content string
+    let contentString = favoriteFoods.join(', ');
 
-    foodElement.innerHTML = contentString;
+    favoriteFoods.shift(); // Removes first element
+    contentString += ', ' + favoriteFoods.join(', ');
+
+    favoriteFoods.pop(); // Removes last element
+    contentString += ', ' + favoriteFoods.join(', ');
+
+    // Update the innerHTML with the final content
+    foodElement.textContent = contentString; // Using textContent for plain text
 });
