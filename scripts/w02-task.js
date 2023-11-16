@@ -1,42 +1,35 @@
-/* W02-Task - Profile Home Page */
 
-/* Step 1 - Setup type tasks - no code required */
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Step 2 - Variables
+    let fullName = 'Whitney Hansen';
+    let currentYear = 2023;
+    let profilePicture = 'images/whitney.jpg';
 
-/* Step 2 - Variables */
-let fullName = 'Whitney Hansen';
-let currentYear = 2023;
-let profilePicture = 'images/whitney.jpg';
+    // Step 3 - Element Variables
+    const nameElement = document.getElementById('name');
+    const foodElement = document.getElementById('food');
+    const yearElement = document.getElementById('year');
+    var imageElement = document.querySelector('img');
 
+    // Step 4 - Adding Content
+    nameElement.innerHTML = `<strong>${fullName}</strong>`;
+    yearElement.textContent = currentYear;
+    imageElement.setAttribute('src', profilePicture);
+    imageElement.setAttribute('alt', `Profile image of ${fullName}`);
 
-/* Step 3 - Element Variables */
-const nameElement = document.getElementById('name');
-const foodElement = document.getElementById('food');
-const yearElement = document.querySelector('#year');
-var imageElement = document.querySelector('img');
+    // Step 5 - Array
+    let favoriteFoods = ['Enchiladas', 'Pizza', 'Sushi', 'Nachos', 'Five Cheese Ziti Al Forno'];
+    foodElement.innerHTML = favoriteFoods.join('<br>');
 
-/* Step 4 - Adding Content */
-nameElement.innerHTML = `<strong>${fullName}</strong>`;
-yearElement.textContent = currentYear;
-imageElement.setAttribute('src', profilePicture);
-imageElement.setAttribute('alt', `Profile image of ${fullName}`);
+    let newFavoriteFood = 'Spaghetti';
+    favoriteFoods.push(newFavoriteFood);
 
+    let contentString = favoriteFoods.join('<br>');
+    favoriteFoods.shift(); 
+    contentString += `<br>${favoriteFoods.join('<br>')}`;
+    favoriteFoods.pop(); 
+    contentString += `<br>${favoriteFoods.join('<br>')}`;
+    
 
-/* Step 5 - Array */
-let favoriteFoods = ['Enchiladas', 'Pizza', 'Sushi', 'Nachos', 'Five Cheese Ziti Al Forno']
-foodElement.innerHTML = favoriteFoods.join('<br>');
-
-let newFavoriteFood = 'Spaghetti';
-favoriteFoods.push(newFavoriteFood);
-
-foodElement.innerHTML = favoriteFoods.join('<br>');
-// This removes first element in the array
-favoriteFoods.shift();
-
-// This appends the modified array output with a line break
-foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
-
-// this removes the last element in the favorite food array
-favoriteFoods.pop();
-
-// this appends the array output with the final modified favorite foods array and a line break
-foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
+    foodElement.innerHTML = contentString;
+});
