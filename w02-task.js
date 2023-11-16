@@ -17,27 +17,26 @@ var imageElement = document.querySelector('img');
 /* Step 4 - Adding Content */
 nameElement.innerHTML = `<strong>${fullName}</strong>`;
 yearElement.textContent = currentYear;
+imageElement.setAttribute('src', profilePicture);
 imageElement.setAttribute('alt', `Profile image of ${fullName}`);
 
 
 /* Step 5 - Array */
 let favoriteFoods = ['Enchiladas', 'Pizza', 'Sushi', 'Nachos', 'Five Cheese Ziti Al Forno']
+foodElement.innerHTML = favoriteFoods.join('<br>');
 
 let newFavoriteFood = 'Spaghetti';
 favoriteFoods.push(newFavoriteFood);
 
 foodElement.innerHTML = favoriteFoods.join('<br>');
-// Removes first element in the array
+// This removes first element in the array
 favoriteFoods.shift();
 
-// Appends the modified array output with a line break
+// This appends the modified array output with a line break
 foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
 
 // this removes the last element in the favorite food array
 favoriteFoods.pop();
 
-// Append the array output with the final modified favorite foods array and a line break
+// this appends the array output with the final modified favorite foods array and a line break
 foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
-
-
-
