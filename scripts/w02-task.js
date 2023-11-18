@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Step 5 - Array
     let favoriteFoods = ['Enchiladas', 'Pizza', 'Sushi', 'Nachos', 'Five Cheese Ziti Al Forno'];
-    
+
+    // Add a new favorite food to the end of the array
     let newFavoriteFood = 'Spaghetti';
     favoriteFoods.push(newFavoriteFood);
-    
-    // Build the content string
-    let contentString = favoriteFoods.join(', ');
 
-    favoriteFoods.shift(); // Removes first element
-    contentString += ', ' + favoriteFoods.join(', ');
+    // Update the innerHTML with the list of favorite foods
+    foodElement.textContent = favoriteFoods.join(', ');
 
-    favoriteFoods.pop(); // Removes last element
-    contentString += ', ' + favoriteFoods.join(', ');
+    // Remove the first element in the array and update the list
+    favoriteFoods.shift();
+    foodElement.textContent += ', ' + favoriteFoods.join(', ');
 
-    // Update the innerHTML with the final content
-    foodElement.textContent = contentString; // Using textContent for plain text
+    // Remove the last element from the array and update the list
+    favoriteFoods.pop();
+    foodElement.textContent += ', ' + favoriteFoods.join(', ');
 });
